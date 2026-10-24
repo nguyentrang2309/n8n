@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Trang Growth Notes</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Trang: Marketing & Growth cho insurtech. Chia sẻ về phễu bán hàng, content chuyển đổi và tâm lý hành vi khách hàng.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: sticker-board energy. A bold hero with a live funnel, then calm reading sections; color lives in tags, stickers and the funnel. */
+:root{
+  --bg:#F3F4FA;
+  --surface:#FFFFFF;
+  --ink:#17153B;
+  --muted:#5A5978;
+  --line:#DCDDEC;
+  --coral:#FF5A36;
+  --sun:#FFC53D;
+  --mint:#14B3A1;
+  --pink:#FF6FAE;
+  --cobalt:#4A5BFF;
+  --on-accent:#17153B;
+  --fill:#FFF1B8;
+  --shadow:0 2px 0 var(--ink);
+  --f-display:"Bricolage Grotesque","Be Vietnam Pro",system-ui,sans-serif;
+  --f-body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --r:14px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#111027;--surface:#1B1A37;--ink:#F1F0FF;--muted:#A6A5C8;--line:#302F55;
+    --coral:#FF7352;--sun:#FFD25E;--mint:#36D3C0;--pink:#FF8CC0;--cobalt:#7F8BFF;
+    --on-accent:#17153B;--fill:#4A3F12;--shadow:0 2px 0 #000;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111027;--surface:#1B1A37;--ink:#F1F0FF;--muted:#A6A5C8;--line:#302F55;
+  --coral:#FF7352;--sun:#FFD25E;--mint:#36D3C0;--pink:#FF8CC0;--cobalt:#7F8BFF;
+  --on-accent:#17153B;--fill:#4A3F12;--shadow:0 2px 0 #000;color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);line-height:1.08;text-wrap:balance;margin:0;letter-spacing:-0.01em}
+p{margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font-family:var(--f-mono);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.en{color:var(--muted);font-style:italic;font-weight:400}
+mark.fill{background:var(--fill);color:var(--ink);padding:0 .25em;border-radius:4px;border-bottom:2px dashed var(--coral)}
+:focus-visible{outline:3px solid var(--cobalt);outline-offset:2px;border-radius:6px}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-display);font-weight:800;font-size:20px}
+.logo .dot{width:30px;height:30px;border-radius:50%;background:conic-gradient(var(--coral) 0 25%,var(--sun) 0 50%,var(--mint) 0 75%,var(--pink) 0);border:2px solid var(--ink)}
+.nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.nav ul a{display:block;padding:6px 12px;border-radius:999px;text-decoration:none;font-weight:600;font-size:14px}
+.nav ul a:hover{background:var(--surface)}
+@media (max-width:640px){.nav ul li:not(.keep){display:none}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;border:2px solid var(--ink);cursor:pointer;font-family:var(--f-body);transition:transform .15s ease,box-shadow .15s ease}
+.btn-primary{background:var(--coral);color:var(--on-accent);box-shadow:0 4px 0 var(--ink)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--ink)}
+.btn-ghost{background:var(--surface);color:var(--ink)}
+.btn-ghost:hover{background:var(--sun);color:var(--on-accent)}
+
+/* hero */
+.hero{padding-block:56px 40px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero-grid>*{min-width:0}
+@media (max-width:880px){.hero-grid{grid-template-columns:1fr;gap:36px}}
+.status{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1.5px solid var(--ink);border-radius:999px;padding:5px 14px 5px 10px;font-size:13px;font-weight:600}
+.status i{width:9px;height:9px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px color-mix(in srgb,var(--mint) 30%,transparent)}
+.hero h1{font-size:clamp(38px,6.4vw,72px);font-weight:800;margin-top:20px}
+.hl{position:relative;white-space:nowrap;z-index:0}
+.hl::after{content:"";position:absolute;left:-4px;right:-4px;bottom:.06em;height:.42em;z-index:-1;border-radius:6px;background:var(--sun);transform:rotate(-1.2deg)}
+.hl.pink::after{background:var(--pink)}
+.hero .lead{font-size:clamp(17px,2vw,19px);color:var(--muted);max-width:56ch;margin-top:22px}
+.hero .lead b{color:var(--ink)}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+
+/* funnel card */
+.funnel{background:var(--surface);border:2px solid var(--ink);border-radius:22px;padding:34px 22px 18px;box-shadow:8px 8px 0 var(--ink);position:relative}
+.funnel .sticker{position:absolute;top:-16px;right:18px;background:var(--pink);color:var(--on-accent);font-family:var(--f-display);font-weight:800;font-size:14px;padding:6px 14px;border-radius:999px;border:2px solid var(--ink);transform:rotate(4deg)}
+.funnel h3{font-size:18px}
+.funnel .sub{font-size:13px;color:var(--muted);margin-top:4px}
+.tiers{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;align-items:center;gap:6px}
+.tier{width:var(--w);min-width:150px;max-width:100%;background:var(--c);color:var(--on-accent);border:2px solid var(--ink);border-radius:12px;padding:9px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px;cursor:pointer;transition:transform .15s ease;font:inherit;text-align:left}
+.tier:hover,.tier[aria-pressed="true"]{transform:scale(1.03)}
+.tier strong{font-size:14px;line-height:1.2}
+.tier small{font-family:var(--f-mono);font-size:11px;font-weight:700;opacity:.8}
+.tier-note{margin-top:14px;padding:12px 14px;border-radius:12px;background:var(--bg);font-size:14px;min-height:72px}
+.tier-note b{display:block;font-family:var(--f-display);font-size:15px}
+
+/* metrics strip */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:2px solid var(--ink);border-radius:var(--r);background:var(--surface);margin-top:52px;overflow:hidden}
+.metric{padding:18px 20px;border-right:1.5px solid var(--line)}
+.metric:last-child{border-right:0}
+.metric .num{font-family:var(--f-display);font-weight:800;font-size:30px;line-height:1.1;font-variant-numeric:tabular-nums}
+.metric .lab{font-size:13px;color:var(--muted);margin-top:4px}
+@media (max-width:760px){.metrics{grid-template-columns:1fr 1fr}.metric:nth-child(2){border-right:0}.metric:nth-child(-n+2){border-bottom:1.5px solid var(--line)}}
+
+/* sections */
+section{padding-block:72px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:32px}
+.sec-head h2{font-size:clamp(30px,4.4vw,46px);font-weight:800;margin-top:8px}
+.sec-head p{color:var(--muted);max-width:52ch}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:280px 1fr;gap:48px;align-items:start}
+.about-grid>*{min-width:0}
+@media (max-width:820px){.about-grid{grid-template-columns:1fr;gap:28px}}
+.avatar{aspect-ratio:1;max-width:280px;width:100%;border-radius:28px;border:2px solid var(--ink);background:radial-gradient(circle at 30% 30%,var(--sun),transparent 55%),radial-gradient(circle at 75% 70%,var(--pink),transparent 55%),var(--coral);display:grid;place-items:center;box-shadow:8px 8px 0 var(--ink);position:relative}
+.avatar span{font-family:var(--f-display);font-weight:800;font-size:96px;color:var(--on-accent)}
+.avatar small{position:absolute;bottom:12px;left:12px;right:12px;text-align:center;font-size:12px;background:var(--surface);color:var(--ink);border-radius:999px;padding:4px 8px;border:1.5px solid var(--ink)}
+.story{display:flex;flex-direction:column;gap:16px;font-size:17px;max-width:65ch}
+.beliefs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+@media (max-width:820px){.beliefs{grid-template-columns:1fr}}
+.belief{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r);padding:20px}
+.belief .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--c);border:2px solid var(--ink);margin-bottom:14px}
+.belief .ic svg{width:20px;height:20px;stroke:var(--on-accent);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.belief h3{font-size:19px}
+.belief p{color:var(--muted);font-size:15px;margin-top:6px}
+
+/* experience */
+.exp{display:grid;grid-template-columns:1.3fr 1fr;gap:40px}
+.exp>*{min-width:0}
+@media (max-width:860px){.exp{grid-template-columns:1fr}}
+.timeline{list-style:none;margin:0;padding:0;border-left:2px solid var(--ink);display:flex;flex-direction:column;gap:28px}
+.timeline li{position:relative;padding-left:24px}
+.timeline li::before{content:"";position:absolute;left:-9px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--c,var(--surface));border:2px solid var(--ink)}
+.timeline .when{font-family:var(--f-mono);font-size:12px;font-weight:700;color:var(--muted)}
+.timeline h3{font-size:21px;margin-top:4px}
+.timeline .org{font-weight:600;color:var(--muted);font-size:15px}
+.timeline ul{margin:10px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.skills{background:var(--surface);border:2px solid var(--ink);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:20px;align-self:start}
+.skills h3{font-size:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chip{font-size:13px;font-weight:600;padding:5px 12px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg)}
+.chip.hot{background:var(--sun);color:var(--on-accent);border-color:var(--ink)}
+
+/* blog */
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filter{font:inherit;font-size:14px;font-weight:600;padding:7px 16px;border-radius:999px;border:1.5px solid var(--ink);background:var(--surface);color:var(--ink);cursor:pointer}
+.filter[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:960px){.posts{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.posts{grid-template-columns:1fr}}
+.post{display:flex;flex-direction:column;background:var(--surface);border:1.5px solid var(--line);border-radius:18px;padding:22px;text-align:left;font:inherit;color:inherit;cursor:pointer;transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease;min-width:0}
+.post:hover{transform:translateY(-4px);border-color:var(--ink);box-shadow:6px 6px 0 var(--ink)}
+.post.featured{grid-column:span 2;background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.post.featured .ex,.post.featured .meta{color:color-mix(in srgb,var(--bg) 75%,transparent)}
+.post.featured h3{font-size:clamp(24px,3vw,32px)}
+@media (max-width:620px){.post.featured{grid-column:auto}}
+.tag{align-self:flex-start;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--c);color:var(--on-accent);border:1.5px solid var(--ink)}
+.post h3{font-size:21px;margin-top:14px}
+.post .ex{color:var(--muted);font-size:15px;margin-top:10px;flex:1}
+.post .meta{font-family:var(--f-mono);font-size:12px;color:var(--muted);margin-top:18px;display:flex;justify-content:space-between;gap:10px}
+.post .meta b{color:var(--coral)}
+
+/* reader */
+dialog{border:2px solid var(--ink);border-radius:22px;padding:0;max-width:720px;width:calc(100% - 32px);max-height:88vh;background:var(--surface);color:var(--ink);box-shadow:10px 10px 0 var(--ink)}
+dialog::backdrop{background:rgba(10,8,30,.55)}
+.reader-top{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 20px;background:var(--surface);border-bottom:1.5px solid var(--line)}
+.close{font:inherit;font-weight:700;border:1.5px solid var(--ink);background:var(--bg);color:var(--ink);border-radius:999px;padding:6px 14px;cursor:pointer}
+article.body{padding:24px 28px 32px}
+@media (max-width:560px){article.body{padding:20px 18px 28px}}
+article.body h2{font-size:clamp(26px,4vw,34px);font-weight:800;margin:12px 0 8px}
+article.body .meta{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+article.body h4{font-family:var(--f-display);font-size:19px;margin:24px 0 6px}
+article.body p{margin-top:12px;font-size:16.5px}
+article.body ul,article.body ol{padding-left:20px;margin:12px 0 0;display:flex;flex-direction:column;gap:6px}
+article.body blockquote{margin:18px 0 0;padding:14px 18px;border-radius:12px;background:var(--bg);border-left:4px solid var(--coral);font-weight:500}
+article.body .src{margin-top:24px;padding-top:14px;border-top:1.5px dashed var(--line);font-size:13px;color:var(--muted)}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:860px){.svc{grid-template-columns:1fr}}
+.svc-card{border:2px solid var(--ink);border-radius:20px;padding:24px;background:var(--c);color:var(--on-accent)}
+.svc-card h3{font-size:22px}
+.svc-card p{margin-top:8px;font-size:15px}
+.svc-card ul{margin:14px 0 0;padding-left:18px;font-size:14px;display:flex;flex-direction:column;gap:4px}
+
+/* contact */
+.contact{background:var(--ink);color:var(--bg);border-radius:28px;padding:48px clamp(20px,5vw,56px);display:grid;grid-template-columns:1.2fr 1fr;gap:36px;align-items:center}
+.contact>*{min-width:0}
+@media (max-width:820px){.contact{grid-template-columns:1fr}}
+.contact h2{font-size:clamp(30px,4.6vw,48px);font-weight:800}
+.contact p{margin-top:12px;color:color-mix(in srgb,var(--bg) 75%,transparent)}
+.mailbox{background:var(--surface);color:var(--ink);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:14px}
+.mail-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.mail-row code{font-family:var(--f-mono);font-size:15px;font-weight:700;user-select:all;word-break:break-all;flex:1;min-width:0}
+.copy{font:inherit;font-size:13px;font-weight:700;padding:7px 14px;border-radius:999px;border:1.5px solid var(--ink);background:var(--sun);color:var(--on-accent);cursor:pointer}
+.socials{display:flex;gap:8px;flex-wrap:wrap}
+.socials a{font-size:14px;font-weight:600;padding:6px 14px;border-radius:999px;border:1.5px solid var(--line);text-decoration:none;background:var(--bg)}
+.socials a:hover{border-color:var(--ink)}
+footer{padding-block:32px 48px;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Điều hướng chính">
+  <div class="wrap">
+    <a class="logo" href="#top"><span class="dot" aria-hidden="true"></span>Trang.</a>
+    <ul>
+      <li><a href="#gioi-thieu">Giới thiệu</a></li>
+      <li><a href="#kinh-nghiem">Kinh nghiệm</a></li>
+      <li class="keep"><a href="#blog">Blog</a></li>
+      <li class="keep"><a href="#lien-he">Liên hệ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="status"><i aria-hidden="true"></i>Đang mở nhận hợp tác &amp; chia sẻ</span>
+        <h1>Mình giúp bảo hiểm từ thứ người ta <span class="hl">né</span> thành thứ người ta <span class="hl pink">tìm</span>.</h1>
+        <p class="lead">Xin chào, mình là <b>Trang</b>. Mình làm <b>Marketing &amp; Growth</b> <span class="en">(tăng trưởng)</span> cho insurtech <span class="en">(công ty công nghệ bảo hiểm)</span> phân phối bảo hiểm phi nhân thọ. Mình xây phễu bán hàng, viết content chuyển đổi và dùng tâm lý hành vi để hiểu vì sao khách mua, hoặc chưa mua.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#blog">Đọc ghi chép growth</a>
+          <a class="btn btn-ghost" href="#lien-he">Kết nối với mình</a>
+        </div>
+      </div>
+
+      <div class="funnel" aria-labelledby="funnel-title">
+        <span class="sticker">Phễu của mình</span>
+        <h3 id="funnel-title">Cách mình nhìn một hành trình mua bảo hiểm</h3>
+        <p class="sub">Chạm vào từng tầng để xem mình tập trung vào điều gì.</p>
+        <ul class="tiers" id="tiers">
+          <li style="width:100%"><button class="tier" style="--w:100%;--c:var(--sun)" data-i="0" aria-pressed="true"><strong>Nhận biết</strong><small>AWARENESS</small></button></li>
+          <li style="width:100%;display:flex;justify-content:center"><button class="tier" style="--w:86%;--c:var(--pink)" data-i="1" aria-pressed="false"><strong>Quan tâm</strong><small>INTEREST</small></button></li>
+          <li style="width:100%;display:flex;justify-content:center"><button class="tier" style="--w:72%;--c:var(--coral)" data-i="2" aria-pressed="false"><strong>Cân nhắc</strong><small>CONSIDER</small></button></li>
+          <li style="width:100%;display:flex;justify-content:center"><button class="tier" style="--w:58%;--c:var(--mint)" data-i="3" aria-pressed="false"><strong>Mua</strong><small>CONVERT</small></button></li>
+          <li style="width:100%;display:flex;justify-content:center"><button class="tier" style="--w:46%;--c:var(--cobalt)" data-i="4" aria-pressed="false"><strong>Giới thiệu</strong><small>REFER</small></button></li>
+        </ul>
+        <div class="tier-note" id="tier-note" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div class="metrics" role="list" aria-label="Một vài con số">
+      <div class="metric" role="listitem"><div class="num"><mark class="fill">[__]+</mark></div><div class="lab">năm làm marketing &amp; sales</div></div>
+      <div class="metric" role="listitem"><div class="num"><mark class="fill">[__]%</mark></div><div class="lab">tăng trưởng doanh số đã đóng góp</div></div>
+      <div class="metric" role="listitem"><div class="num"><mark class="fill">[__]</mark></div><div class="lab">chiến dịch đa kênh đã triển khai</div></div>
+      <div class="metric" role="listitem"><div class="num"><mark class="fill">[__]x</mark></div><div class="lab">tỷ lệ chuyển đổi phễu cải thiện</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="gioi-thieu">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow">Giới thiệu</span><h2>Người làm growth thích hỏi "vì sao".</h2></div>
+    </div>
+    <div class="about-grid">
+      <div class="avatar" role="img" aria-label="Ảnh đại diện"><span>T</span><small>Thay bằng ảnh chân dung của bạn</small></div>
+      <div>
+        <div class="story">
+          <p>Bảo hiểm là sản phẩm khó bán nhất mình từng gặp. Không ai thức dậy và háo hức muốn mua bảo hiểm. Người ta mua khi đã hiểu rủi ro, tin người bán và thấy việc mua đủ dễ.</p>
+          <p>Hiện tại mình phụ trách truyền thông và tăng trưởng doanh số tại <b>Bảo hiểm NNX</b>, một startup insurtech 20 người. Ở startup, mình vừa là người lên chiến lược, vừa viết kịch bản video, vừa ngồi soi từng chỉ số trong phễu. Mình thích sự "đa nhiệm" đó vì nó buộc mình hiểu khách hàng từ đầu đến cuối hành trình.</p>
+          <p>Ngoài công việc, mình đọc nhiều về <b>khoa học não bộ</b> và <b>nuôi dạy con bằng cảm xúc</b>. Hai thứ tưởng không liên quan nhưng lại dạy mình cùng một điều: con người quyết định bằng cảm xúc trước, rồi mới tìm lý do sau.</p>
+        </div>
+      </div>
+    </div>
+    <div class="beliefs">
+      <div class="belief" style="--c:var(--sun)">
+        <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg></div>
+        <h3>Hiểu tâm lý trước khi viết</h3>
+        <p>Mỗi nội dung bắt đầu bằng câu hỏi: khách đang sợ gì, ngại gì, cần nghe điều gì để bước tiếp.</p>
+      </div>
+      <div class="belief" style="--c:var(--mint)">
+        <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+        <h3>Số liệu quyết định, cảm giác gợi ý</h3>
+        <p>Mình tin trực giác để đặt giả thuyết, và tin dữ liệu để biết giả thuyết đó đúng hay sai.</p>
+      </div>
+      <div class="belief" style="--c:var(--pink)">
+        <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.4-9.3-9A5.4 5.4 0 0 1 12 6.3 5.4 5.4 0 0 1 21.3 12C19 16.6 12 21 12 21z"/></svg></div>
+        <h3>Bán bằng sự tử tế</h3>
+        <p>Không hù dọa, không thổi phồng. Khách mua vì hiểu đúng thì mới ở lại lâu và giới thiệu thêm người.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kinh-nghiem">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow">Kinh nghiệm</span><h2>Mình đã làm gì, và làm được gì.</h2></div>
+      <p>Phần có nền vàng là chỗ để bạn điền số liệu và thông tin thật.</p>
+    </div>
+    <div class="exp">
+      <ol class="timeline">
+        <li style="--c:var(--coral)">
+          <div class="when"><mark class="fill">[năm]</mark> đến nay</div>
+          <h3>Marketing &amp; Sales, Truyền thông và Tăng trưởng</h3>
+          <div class="org">Bảo hiểm NNX · Insurtech phi nhân thọ</div>
+          <ul>
+            <li>Lập kế hoạch và chiến lược marketing đa kênh <span class="en">(omnichannel)</span> cho thương hiệu mới.</li>
+            <li>Xây và tối ưu phễu bán hàng, đưa tỷ lệ chuyển đổi từ <mark class="fill">[__]%</mark> lên <mark class="fill">[__]%</mark>.</li>
+            <li>Viết nội dung social, kịch bản video short; kênh <mark class="fill">[tên kênh]</mark> đạt <mark class="fill">[__]</mark> người theo dõi.</li>
+            <li>Theo dõi và báo cáo doanh số hằng tuần, đóng góp <mark class="fill">[__]</mark> doanh thu.</li>
+          </ul>
+        </li>
+        <li style="--c:var(--sun)">
+          <div class="when"><mark class="fill">[năm]</mark> đến <mark class="fill">[năm]</mark></div>
+          <h3><mark class="fill">[Vị trí trước đây]</mark></h3>
+          <div class="org"><mark class="fill">[Tên công ty]</mark></div>
+          <ul>
+            <li><mark class="fill">[Thành tích nổi bật nhất, có con số]</mark></li>
+            <li><mark class="fill">[Kỹ năng hoặc dự án đáng kể]</mark></li>
+          </ul>
+        </li>
+        <li style="--c:var(--mint)">
+          <div class="when"><mark class="fill">[năm]</mark></div>
+          <h3><mark class="fill">[Bằng cấp / chứng chỉ]</mark></h3>
+          <div class="org"><mark class="fill">[Trường / đơn vị cấp]</mark></div>
+        </li>
+      </ol>
+
+      <aside class="skills" aria-label="Kỹ năng">
+        <div>
+          <h3>Chiến lược &amp; Growth</h3>
+          <div class="chips">
+            <span class="chip hot">Phễu bán hàng</span><span class="chip">Growth marketing</span><span class="chip">Performance <span class="en">(quảng cáo hiệu suất)</span></span><span class="chip">CRO <span class="en">(tối ưu chuyển đổi)</span></span><span class="chip">Brand awareness <span class="en">(nhận diện)</span></span>
+          </div>
+        </div>
+        <div>
+          <h3>Content &amp; Social</h3>
+          <div class="chips">
+            <span class="chip hot">Content viral</span><span class="chip">Video short</span><span class="chip">Copywriting</span><span class="chip">Xây kênh social</span><span class="chip">Storytelling</span>
+          </div>
+        </div>
+        <div>
+          <h3>Tâm lý hành vi</h3>
+          <div class="chips">
+            <span class="chip hot">Behavioral economics <span class="en">(kinh tế học hành vi)</span></span><span class="chip">Insight khách hàng</span><span class="chip">Thiết kế lời mời mua</span>
+          </div>
+        </div>
+        <div>
+          <h3>Công cụ</h3>
+          <div class="chips">
+            <span class="chip">Obsidian</span><span class="chip">Google Sheets</span><span class="chip">Google Docs</span><span class="chip">Canva</span><span class="chip">Excel</span><span class="chip">Claude AI</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="blog">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow">Ghi chép growth</span><h2>Những gì mình học được khi bán bảo hiểm online.</h2></div>
+      <div class="filters" role="group" aria-label="Lọc theo chủ đề" id="filters">
+        <button class="filter" aria-pressed="true" data-cat="all">Tất cả</button>
+        <button class="filter" aria-pressed="false" data-cat="growth">Growth</button>
+        <button class="filter" aria-pressed="false" data-cat="content">Content</button>
+        <button class="filter" aria-pressed="false" data-cat="tamly">Tâm lý hành vi</button>
+      </div>
+    </div>
+    <div class="posts" id="posts"></div>
+  </div>
+</section>
+
+<section id="hop-tac">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow">Hợp tác</span><h2>Mình có thể cùng bạn làm gì.</h2></div>
+    </div>
+    <div class="svc">
+      <div class="svc-card" style="--c:var(--sun)">
+        <h3>Chia sẻ &amp; diễn giả</h3>
+        <p>Workshop, talkshow về growth cho insurtech và fintech.</p>
+        <ul><li>Phễu bán hàng cho sản phẩm "khó bán"</li><li>Tâm lý hành vi trong content</li></ul>
+      </div>
+      <div class="svc-card" style="--c:var(--mint)">
+        <h3>Tư vấn chiến lược</h3>
+        <p>Nhìn lại phễu, tìm điểm rơi và đề xuất thử nghiệm ưu tiên.</p>
+        <ul><li>Audit phễu &amp; chỉ số</li><li>Lộ trình tăng trưởng 90 ngày</li></ul>
+      </div>
+      <div class="svc-card" style="--c:var(--pink)">
+        <h3>Hợp tác nội dung</h3>
+        <p>Viết bài, làm video, đồng sáng tạo cùng thương hiệu và cộng đồng marketer.</p>
+        <ul><li>Bài chuyên môn, case study</li><li>Podcast, livestream</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lien-he">
+  <div class="wrap">
+    <div class="contact">
+      <div>
+        <span class="eyebrow" style="color:inherit;opacity:.7">Liên hệ</span>
+        <h2>Có bài toán tăng trưởng? Kể mình nghe.</h2>
+        <p>Mình thường trả lời trong vòng 2 ngày làm việc. Một tin nhắn ngắn kèm bối cảnh là đủ để bắt đầu.</p>
+      </div>
+      <div class="mailbox">
+        <span class="eyebrow">Email</span>
+        <div class="mail-row"><code id="email">[email-cua-ban]@gmail.com</code><button class="copy" id="copy" type="button">Sao chép</button></div>
+        <span class="eyebrow">Mạng xã hội</span>
+        <div class="socials">
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.tiktok.com/" target="_blank" rel="noopener">TikTok</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><span>© 2026 Trang · Marketing &amp; Growth</span><span>Viết bằng sự tò mò về con người.</span></div>
+</footer>
+
+<dialog id="reader" aria-labelledby="r-title">
+  <div class="reader-top"><span class="tag" id="r-tag"></span><button class="close" id="r-close" type="button">Đóng</button></div>
+  <article class="body" id="r-body"></article>
+</dialog>
+
+<script>
+(function(){
+  /* ---------- Funnel ---------- */
+  var notes=[
+    ["Được nhìn thấy, đủ nhiều lần","Thương hiệu mới cần tần suất. Mình ưu tiên video short và nội dung giải đáp nỗi lo thật của khách."],
+    ["Biến tò mò thành câu hỏi","Nội dung giáo dục ngắn: bảo hiểm này chi trả gì, không chi trả gì, nói bằng ngôn ngữ đời thường."],
+    ["Gỡ nỗi ngại cuối cùng","So sánh minh bạch, câu chuyện bồi thường thật, đánh giá của khách. Niềm tin là đòn bẩy lớn nhất."],
+    ["Mua dễ như đặt đồ ăn","Rút gọn bước, giảm ô phải điền, nhắc đúng lúc. Mỗi bước thừa là một nhóm khách rời đi."],
+    ["Khách cũ kéo khách mới","Chăm sóc sau mua, nhắc gia hạn tử tế, tạo lý do để khách muốn giới thiệu bạn bè."]
+  ];
+  var tiers=document.querySelectorAll(".tier"), note=document.getElementById("tier-note");
+  function showTier(i){
+    tiers.forEach(function(t){t.setAttribute("aria-pressed",t.dataset.i==i?"true":"false")});
+    note.innerHTML="<b></b><span></span>";
+    note.querySelector("b").textContent=notes[i][0];
+    note.querySelector("span").textContent=notes[i][1];
+  }
+  tiers.forEach(function(t){
+    t.addEventListener("click",function(){showTier(t.dataset.i)});
+    t.addEventListener("mouseenter",function(){showTier(t.dataset.i)});
+  });
+  showTier(0);
+
+  /* ---------- Posts ---------- */
+  var CATS={growth:["Growth","var(--mint)"],content:["Content","var(--sun)"],tamly:["Tâm lý hành vi","var(--pink)"]};
+  var POSTS=[
+    {id:"de-mai-tinh",cat:"tamly",featured:true,date:"10/2026",min:6,
+     title:"Vì sao khách luôn \"để mai tính\" khi mua bảo hiểm",
+     ex:"Khách không từ chối. Họ chỉ hoãn. Và hoãn là kẻ thù lớn nhất của phễu bảo hiểm. Đây là cách mình hiểu thiên lệch hiện tại và thiết kế lại lời mời mua.",
+     body:"<p>Trong phễu bảo hiểm, câu mình nghe nhiều nhất không phải \"không\" mà là \"để chị suy nghĩ thêm\". Rồi khách biến mất.</p><h4>Thiên lệch hiện tại (present bias) là gì</h4><p>Kinh tế học hành vi gọi hiện tượng này là <b>present bias</b> <i>(thiên lệch hiện tại)</i>: con người đánh giá cái lợi và cái giá ở hiện tại nặng hơn nhiều so với tương lai. Phí bảo hiểm là cái giá trả ngay hôm nay. Lợi ích là sự an tâm ở một tương lai không chắc chắn. Não chọn hoãn là chuyện bình thường.</p><h4>Mình xử lý thế nào</h4><ul><li><b>Kéo lợi ích về hiện tại:</b> nói về sự yên tâm ngay tối nay, không chỉ về \"nếu có chuyện xảy ra\".</li><li><b>Chia nhỏ cái giá:</b> quy phí năm về chi phí mỗi ngày, so với một ly trà sữa.</li><li><b>Tạo mốc hành động:</b> gắn việc mua với một sự kiện có thật như chuyến đi, mua xe mới, con vào lớp 1.</li><li><b>Giảm ma sát:</b> mỗi ô phải điền thêm là thêm một lý do để \"mai làm\".</li></ul><blockquote>Khách không lười. Họ chỉ là con người. Việc của marketer là làm cho \"bây giờ\" dễ hơn \"để mai\".</blockquote>",
+     src:"Tham khảo: Laibson, D. (1997). Golden Eggs and Hyperbolic Discounting. Quarterly Journal of Economics; O'Donoghue & Rabin (1999). Doing It Now or Later. American Economic Review."},
+    {id:"phe-u-4-tang",cat:"growth",date:"09/2026",min:7,
+     title:"Phễu cho một thương hiệu insurtech chưa ai biết",
+     ex:"Khi chưa ai biết bạn, tối ưu tỷ lệ chuyển đổi là chưa đủ. Mình chia phễu thành từng tầng và chọn một chỉ số chính cho mỗi tầng.",
+     body:"<p>Startup thường lao vào chạy quảng cáo chuyển đổi từ ngày đầu. Với bảo hiểm, cách đó đắt và kém hiệu quả vì khách chưa tin một cái tên mới.</p><h4>Mỗi tầng một nhiệm vụ, một chỉ số</h4><ol><li><b>Nhận biết:</b> lượt tiếp cận và tỷ lệ xem hết video. Mục tiêu là được nhìn thấy đủ lần.</li><li><b>Quan tâm:</b> lượt lưu, chia sẻ, bình luận đặt câu hỏi. Đây là tín hiệu khách bắt đầu nghĩ về vấn đề.</li><li><b>Cân nhắc:</b> lượt vào trang sản phẩm, lượt dùng công cụ tính phí.</li><li><b>Mua:</b> tỷ lệ hoàn tất đơn từ người đã bắt đầu điền.</li><li><b>Giới thiệu:</b> tỷ lệ gia hạn và số khách đến từ giới thiệu.</li></ol><h4>Sai lầm mình từng mắc</h4><p>Nhìn mỗi con số cuối phễu. Khi doanh số chững lại, mình không biết tầng nào đang tắc. Từ khi tách chỉ số theo tầng, mỗi cuộc họp tuần chỉ còn một câu hỏi: tầng nào đang rơi nhiều nhất, và thử nghiệm nào sẽ sửa nó?</p><p><mark class=\"fill\">[Thêm case study thật của bạn ở đây: con số trước và sau]</mark></p>",
+     src:"Khung AIDA được cho là bắt nguồn từ E. St. Elmo Lewis (cuối thế kỷ 19); tầng Giới thiệu là phần mở rộng phổ biến trong growth marketing hiện đại."},
+    {id:"so-mat-mat",cat:"content",date:"09/2026",min:5,
+     title:"Nỗi sợ mất mát: viết content bảo hiểm mà không hù dọa",
+     ex:"Con người ghét mất hơn thích được. Nhưng dùng nỗi sợ quá tay thì khách sẽ né thương hiệu của bạn. Đây là ranh giới mình tự đặt.",
+     body:"<p>Năm 1979, Kahneman và Tversky công bố Lý thuyết triển vọng (Prospect Theory). Một phát hiện cốt lõi là <b>loss aversion</b> <i>(né tránh mất mát)</i>: cảm giác mất đi một khoản thường nặng hơn cảm giác nhận được khoản tương đương. Nghiên cứu sau đó của hai ông ước lượng mức chênh khoảng hơn 2 lần.</p><h4>Vì sao không nên hù dọa</h4><p>Content kiểu \"tai nạn có thể xảy ra bất cứ lúc nào\" kéo được sự chú ý, nhưng để lại cảm giác khó chịu gắn với tên thương hiệu. Với thương hiệu mới, đó là cái giá đắt.</p><h4>Ba nguyên tắc của mình</h4><ul><li><b>Nói về thứ khách giữ được,</b> không chỉ thứ họ có thể mất: giữ được khoản tiết kiệm, giữ được kế hoạch du lịch.</li><li><b>Dùng chuyện thật, kết thúc có hậu:</b> một lần bồi thường nhanh kể bằng giọng của khách.</li><li><b>Luôn kèm lối ra:</b> nêu rủi ro rồi đưa ngay giải pháp cụ thể, để não chuyển từ lo sang hành động.</li></ul><blockquote>Nỗi sợ mở cửa. Sự an tâm mới giữ khách ở lại.</blockquote>",
+     src:"Tham khảo: Kahneman, D. & Tversky, A. (1979). Prospect Theory. Econometrica 47(2); Tversky, A. & Kahneman, D. (1992). Advances in Prospect Theory. Journal of Risk and Uncertainty."},
+    {id:"lap-lai-de-nho",cat:"growth",date:"08/2026",min:4,
+     title:"Thương hiệu mới: lặp lại đủ lâu để được nhớ",
+     ex:"Bạn chán thông điệp của mình từ lâu trước khi khách kịp nhớ nó. Hiệu ứng tiếp xúc đơn thuần giải thích vì sao sự kiên trì thắng sự sáng tạo liên tục.",
+     body:"<p>Năm 1968, nhà tâm lý học Robert Zajonc mô tả <b>mere exposure effect</b> <i>(hiệu ứng tiếp xúc đơn thuần)</i>: con người có xu hướng thích những thứ họ đã gặp nhiều lần, kể cả khi không nhớ mình đã gặp ở đâu.</p><h4>Áp dụng cho nhận diện thương hiệu</h4><ul><li><b>Giữ một \"tài sản nhận diện\" cố định:</b> màu, câu mở đầu video, nhân vật, hoặc một cách xưng hô riêng.</li><li><b>Đổi nội dung, giữ khung:</b> mỗi tuần một chủ đề mới nhưng cùng định dạng để khách nhận ra ngay.</li><li><b>Đo bằng tìm kiếm thương hiệu:</b> lượng người tìm tên công ty là tín hiệu nhận diện rõ hơn lượt thích.</li></ul><p>Lưu ý: hiệu ứng này có điểm bão hòa. Lặp lại y hệt quá nhiều sẽ gây nhàm. Vì vậy mình lặp lại khung nhận diện, không lặp lại nội dung.</p>",
+     src:"Tham khảo: Zajonc, R. B. (1968). Attitudinal effects of mere exposure. Journal of Personality and Social Psychology 9(2)."},
+    {id:"hook-3-giay",cat:"content",date:"08/2026",min:5,
+     title:"Mấy giây đầu video short: các kiểu hook mình hay dùng",
+     ex:"Người xem quyết định lướt hay ở lại rất nhanh. Đây là 4 kiểu hook mình hay dùng cho chủ đề bảo hiểm vốn bị coi là khô khan.",
+     body:"<p>Hook <i>(câu móc, phần mở đầu giữ chân)</i> là phần quan trọng nhất của video short. Với bảo hiểm, thử thách lớn hơn vì chủ đề dễ bị lướt qua.</p><h4>4 kiểu hook mình hay dùng</h4><ol><li><b>Câu hỏi đúng nỗi lo:</b> \"Xe bị trầy khi đậu ở hầm chung cư, bảo hiểm có trả không?\"</li><li><b>Phá niềm tin sai:</b> \"Mua bảo hiểm rồi chưa chắc đã được bồi thường, vì 1 lỗi này.\"</li><li><b>Con số cụ thể:</b> \"Chưa tới [__] nghìn mỗi ngày cho cả chuyến đi.\" Con số làm não dừng lại.</li><li><b>Mở bằng cảnh đời thường:</b> một khung hình quen thuộc như kẹt xe, sân bay, phòng khám.</li></ol><h4>Điều mình tránh</h4><ul><li>Hook giật tít không liên quan nội dung, làm khách mất niềm tin.</li><li>Mở bằng logo hoặc lời chào dài.</li></ul><p>Mình chấm từng hook bằng tỷ lệ giữ chân ở giây thứ 3 trong trang phân tích của nền tảng, rồi giữ lại công thức thắng.</p>",
+     src:"Số liệu giữ chân nên lấy từ công cụ phân tích của chính kênh bạn (TikTok Studio, YouTube Analytics) thay vì con số chung trên mạng."},
+    {id:"5-chi-so",cat:"growth",date:"07/2026",min:4,
+     title:"5 chỉ số phễu mình nhìn mỗi sáng thứ Hai",
+     ex:"Báo cáo dài không làm doanh số tăng. Một bảng nhỏ với đúng 5 chỉ số giúp mình biết tuần này cần sửa chỗ nào.",
+     body:"<p>Mình từng làm báo cáo 4 trang mỗi tuần. Không ai đọc hết, kể cả mình. Giờ bảng theo dõi chỉ còn 5 dòng.</p><ol><li><b>Chi phí cho mỗi khách tiềm năng</b> <i>(CPL, cost per lead)</i>: quảng cáo có đang đắt lên không.</li><li><b>Tỷ lệ khách tiềm năng thành đơn</b> <i>(lead-to-sale rate)</i>: đội tư vấn và trang mua có đang làm tốt không.</li><li><b>Tỷ lệ bỏ giỏ ở bước điền thông tin</b>: bước nào đang làm khách bỏ đi.</li><li><b>Giá trị đơn trung bình</b> <i>(AOV, average order value)</i>: khách có mua thêm quyền lợi không.</li><li><b>Tỷ lệ gia hạn</b> <i>(renewal rate)</i>: khách có ở lại không.</li></ol><blockquote>Một chỉ số chỉ đáng theo dõi khi bạn biết sẽ làm gì nếu nó tăng hoặc giảm.</blockquote><p>Mình làm bảng này trên Google Sheets, mỗi chỉ số có cột tuần này, tuần trước và một ô ghi chú \"thử gì tiếp\".</p>",
+     src:"Tên chỉ số theo cách gọi phổ biến trong performance marketing; cách tính cụ thể nên thống nhất trong đội trước khi so sánh."}
+  ];
+  var grid=document.getElementById("posts");
+  function esc(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML}
+  POSTS.forEach(function(p){
+    var c=CATS[p.cat];
+    var b=document.createElement("button");
+    b.type="button";b.className="post"+(p.featured?" featured":"");b.dataset.cat=p.cat;b.dataset.id=p.id;
+    b.innerHTML='<span class="tag" style="--c:'+c[1]+'">'+c[0]+'</span><h3>'+esc(p.title)+'</h3><p class="ex">'+esc(p.ex)+'</p><div class="meta"><span>'+p.date+' · '+p.min+' phút đọc</span><b>Đọc tiếp →</b></div>';
+    b.addEventListener("click",function(){openPost(p.id)});
+    grid.appendChild(b);
+  });
+
+  var filters=document.querySelectorAll(".filter");
+  filters.forEach(function(f){
+    f.addEventListener("click",function(){
+      var cat=f.dataset.cat;
+      filters.forEach(function(x){x.setAttribute("aria-pressed",x===f?"true":"false")});
+      grid.querySelectorAll(".post").forEach(function(p){
+        var show=cat==="all"||p.dataset.cat===cat;
+        p.hidden=!show;
+        p.classList.toggle("featured",cat==="all"&&POSTS.some(function(x){return x.id===p.dataset.id&&x.featured}));
+      });
+    });
+  });
+
+  var dlg=document.getElementById("reader");
+  function openPost(id){
+    var p=POSTS.filter(function(x){return x.id===id})[0]; if(!p) return;
+    var c=CATS[p.cat], tag=document.getElementById("r-tag");
+    tag.textContent=c[0]; tag.style.setProperty("--c",c[1]);
+    document.getElementById("r-body").innerHTML='<div class="meta">'+p.date+' · '+p.min+' phút đọc</div><h2 id="r-title">'+esc(p.title)+'</h2>'+p.body+'<p class="src">'+esc(p.src)+'</p>';
+    if(dlg.showModal){dlg.showModal()}else{dlg.setAttribute("open","")}
+    dlg.scrollTop=0;
+  }
+  document.getElementById("r-close").addEventListener("click",function(){dlg.close()});
+  dlg.addEventListener("click",function(e){if(e.target===dlg)dlg.close()});
+
+  var h=(location.hash||"").slice(1);
+  if(h&&POSTS.some(function(p){return p.id===h})) openPost(h);
+
+  /* ---------- Copy email ---------- */
+  var copyBtn=document.getElementById("copy"), email=document.getElementById("email");
+  copyBtn.addEventListener("click",function(){
+    var txt=email.textContent;
+    function fallback(){var r=document.createRange();r.selectNodeContents(email);var s=getSelection();s.removeAllRanges();s.addRange(r);copyBtn.textContent="Đã chọn, nhấn Ctrl+C"}
+    try{
+      navigator.clipboard.writeText(txt).then(function(){copyBtn.textContent="Đã sao chép";setTimeout(function(){copyBtn.textContent="Sao chép"},1800)},fallback);
+    }catch(e){fallback()}
+  });
+})();
+</script>
+</body>
+</html>
